@@ -1,0 +1,50 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+{% block title %} Homepage {% endblock %}
+{% block styles %}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 40px;
+        background-color: #f4f4f9;
+        color: #333;
+    }
+    .container {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        max-width: 500px;
+    }
+    ul {
+        padding-left: 20px;
+    }
+</style>
+{% endblock %}
+{% block content %}
+<div class="container">
+    <p><strong>Name:</strong> {{ name | title }}</p>
+    <p><strong>Age:</strong> {{ age }}</p>
+    <p>{{ about | truncatechars:30 }}</p>
+
+    <h3>🎬 {{ favMovies | length }} Favorite Movies:</h3>
+    <ul>
+        {% for movie, year in favMovies.items %}
+        <li><strong>{{ movie }}</strong> (Released: {{ year }})</li>
+        {% empty %}
+        <li>No movies added yet.</li>
+        {% endfor %}
+    </ul>
+
+    <h3>🎬 {{ skills | length }} Favorite Skills:</h3>
+    <ul>
+        {% for skill in skills %}
+        <li><strong>{{ skill }}</strong></li>
+        {% empty %}
+        <li>No Skills Added</li>
+        {% endfor %}
+    </ul>
+
+    <img src="{% static 'images/logo.png' %}">
+</div>
+{% endblock content %}

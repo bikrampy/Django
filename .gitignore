@@ -1,0 +1,26 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environments (Matches your .venv folders)
+.venv/
+venv/
+ENV/
+env/
+
+# Databases
+*.sqlite3
+
+# macOS specific files (Since you're on a MacBook Air)
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# IDEs and Editors
+.vscode/
+.idea/
+
+# Local settings / secrets (Always keep your SECRET_KEY safe!)
+.env
+local_settings.py

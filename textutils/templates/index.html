@@ -1,0 +1,210 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TextUtils | Input Page</title>
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: rgb(253, 245, 170);
+        margin: 0;
+        padding: 0;
+      }
+
+      header {
+        background-color: rgb(17, 63, 103);
+        color: white;
+        padding: 10px;
+        text-align: center;
+      }
+
+      section {
+        margin: 20px;
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(52, 105, 154, 0.5);
+      }
+
+      section p {
+        text-align: center;
+        font-size: 18px;
+        margin-bottom: 20px;
+      }
+
+      textarea {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        box-sizing: border-box;
+        resize: vertical;
+      }
+
+      label {
+        display: block;
+        margin: 12px 0;
+        font-weight: 500;
+      }
+
+      /* Toggle Switch Styles */
+      .toggle-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 10px auto;
+        gap: 15px;
+        flex-wrap: wrap;
+      }
+
+      .toggle-option {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background: rgb(88, 160, 200);
+        padding: 10px 15px;
+        border-radius: 30px;
+        position: relative;
+        transition: background 0.3s ease;
+      }
+
+      .toggle-option input[type="radio"] {
+        display: none;
+      }
+
+      .toggle-option label {
+        position: relative;
+        padding-left: 50px;
+        cursor: pointer;
+        font-size: 14px;
+        user-select: none;
+        color: white;
+      }
+
+      .toggle-option label::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 2px;
+        width: 36px;
+        height: 20px;
+        background-color: #ccc;
+        border-radius: 20px;
+        transition: background-color 0.3s;
+      }
+
+      .toggle-option label::after {
+        content: "";
+        position: absolute;
+        left: 2px;
+        top: 4px;
+        width: 16px;
+        height: 16px;
+        background-color: white;
+        border-radius: 50%;
+        transition: transform 0.3s;
+      }
+
+      .toggle-option input[type="radio"]:checked + label::before {
+        background-color: rgb(17, 63, 103);
+      }
+
+      .toggle-option input[type="radio"]:checked + label::after {
+        transform: translateX(16px);
+      }
+
+      form {
+        text-align: center;
+      }
+
+      button {
+        background-color: rgb(17, 63, 103);
+        color: white;
+        padding: 12px 25px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        margin-top: 20px;
+        font-size: 16px;
+      }
+
+      button:hover {
+        background-color: rgb(52, 105, 154);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>TextUtils</h1>
+      <nav>About Us</nav>
+    </header>
+    <section>
+      <p>
+        Please Enter Your Text and Choose From The Options Below to Perform
+        Their Corresponding Action
+      </p>
+      <form action="/analyzetext" method="post">
+        {% csrf_token %}
+        <textarea
+          name="userText"
+          id=""
+          style="width: 682px; height: 232px"
+          placeholder="Enter Your Text..."
+        ></textarea>
+        <br />
+        <div class="toggle-container">
+          <div class="toggle-option">
+            <input
+              type="radio"
+              name="operation"
+              id="removepunc"
+              value="removepunc"
+            />
+            <label for="removepunc">Remove Punctuation</label>
+          </div>
+          <div class="toggle-option">
+            <input
+              type="radio"
+              name="operation"
+              id="toUppercase"
+              value="toUppercase"
+            />
+            <label for="toUppercase">Convert To UPPERCASE</label>
+          </div>
+          <div class="toggle-option">
+            <input
+              type="radio"
+              name="operation"
+              id="newlineremover"
+              value="newlineremover"
+            />
+            <label for="newlineremover">Newline Remover</label>
+          </div>
+          <div class="toggle-option">
+            <input
+              type="radio"
+              name="operation"
+              id="spaceremover"
+              value="spaceremover"
+            />
+            <label for="spaceremover">Extra Space Remover</label>
+          </div>
+          <div class="toggle-option">
+            <input
+              type="radio"
+              name="operation"
+              id="charactercount"
+              value="charactercount"
+            />
+            <label for="charactercount">Count Character</label>
+          </div>
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+  </body>
+</html>
