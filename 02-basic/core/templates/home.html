@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Dashboard</title>
+    <link rel="stylesheet" href="{% static 'dist/output.css' %}">
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen font-sans flex flex-col justify-between">
+
+    <nav class="border-b border-slate-800 bg-slate-900/50 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <span class="text-xl font-bold tracking-tight bg-linear-to-r from-violet-400 to-indigo-400 bg-clip-text text-transparent">
+                EduPortal
+            </span>
+            <div class="flex items-center space-x-4 text-sm font-medium text-slate-400">
+                <a href="#" class="hover:text-violet-400 transition">Dashboard</a>
+                <a href="#" class="hover:text-violet-400 transition">Students</a>
+                <a href="#" class="hover:text-violet-400 transition">Courses</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex-1 w-full">
+        <header class="mb-10">
+            <h1 class="text-3xl font-extrabold tracking-tight sm:text-4xl">Welcome Back</h1>
+            <p class="text-slate-400 mt-2">Overview of registered departments, courses, and student records.</p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <div class="relative group rounded-2xl border border-slate-800 bg-slate-900 p-6 shadow-xl transition hover:border-slate-700">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-lg font-semibold text-slate-200">Departments</h3>
+                    <span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-violet-500/10 text-violet-400 border border-violet-500/20">Active</span>
+                </div>
+                <p class="mt-4 text-sm text-slate-400">Manage academic faculties and organizational departments.</p>
+                <div class="mt-6 flex justify-end">
+                    <button class="text-sm font-semibold text-violet-400 group-hover:text-violet-300 transition inline-flex items-center gap-1">
+                        View all <span>&rarr;</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="relative group rounded-2xl border border-slate-800 bg-slate-900 p-6 shadow-xl transition hover:border-slate-700">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-lg font-semibold text-slate-200">Courses</h3>
+                    <span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Syllabus</span>
+                </div>
+                <p class="mt-4 text-sm text-slate-400">Review credit distributions, module structures, and schedules.</p>
+                <div class="mt-6 flex justify-end">
+                    <button class="text-sm font-semibold text-indigo-400 group-hover:text-indigo-300 transition inline-flex items-center gap-1">
+                        View all <span>&rarr;</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="relative group rounded-2xl border border-slate-800 bg-slate-900 p-6 shadow-xl transition hover:border-slate-700">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-lg font-semibold text-slate-200">Students</h3>
+                    <span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Enrolled</span>
+                </div>
+                <p class="mt-4 text-sm text-slate-400">Access profiles, academic track records, and roll allocations.</p>
+                <div class="mt-6 flex justify-end">
+                    <button class="text-sm font-semibold text-emerald-400 group-hover:text-emerald-300 transition inline-flex items-center gap-1">
+                        View all <span>&rarr;</span>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="border-t border-slate-900 bg-slate-950 py-6 text-center text-xs text-slate-600">
+        &copy; 2026 EduPortal Framework. All rights reserved.
+    </footer>
+
+</body>
+</html>

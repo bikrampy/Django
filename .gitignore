@@ -2,7 +2,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
-
+node_modules/
 # Virtual Environments (Matches your .venv folders)
 .venv/
 venv/
