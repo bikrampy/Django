@@ -1,5 +1,5 @@
 from django.db import models
-
+from cloudinary.models import CloudinaryField
 
 class Department(models.Model):
     name = models.CharField(max_length=100, unique=True)
@@ -15,6 +15,11 @@ class Student(models.Model):
     roll = models.IntegerField(unique=True)
     name = models.CharField(max_length=100)
     email = models.EmailField(null=True)
+    profile_pic = CloudinaryField(
+        'image',
+        blank=True,
+        null=True
+    )
     age = models.IntegerField()
     dept = models.ForeignKey(
         Department,
